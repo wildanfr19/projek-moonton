@@ -10,6 +10,12 @@ const mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
+// mix.options({ warnOnErrors: true });
+
+mix.webpackConfig({
+    stats: {
+        children: true,
+    },});
 
 mix.js('resources/js/app.js', 'public/js')
     .react()
@@ -21,6 +27,8 @@ mix.js('resources/js/app.js', 'public/js')
     .alias({
         '@': 'resources/js',
     });
+
+    
 
 if (mix.inProduction()) {
     mix.version();
