@@ -3,6 +3,7 @@
 @import 'tailwindcss/utilities';
 @import "inpus.css";
 @import "button.css";
+@import "dashboard.css";
 
 .flex::before,
 .flex::after {

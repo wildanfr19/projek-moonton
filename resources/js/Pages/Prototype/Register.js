@@ -3,6 +3,7 @@ import Input from "@/Components/Input";
 import Button from "@/Components/Button";
 import { Link, Head } from "@inertiajs/inertia-react";
 
+
 export default function Register(){
     return(
         <>
@@ -64,12 +65,13 @@ export default function Register(){
                             </div>
                         </div>
                         <div className="grid space-y-[14px] mt-[30px]">
-                            {/* <a href="/" className="rounded-2xl bg-alerange py-[13px] text-center"> */}
+                            <Link href={route('prototype.dashboard')}>
                             <Button>
                                 <span className="text-base font-semibold"> 
                                     Sign Up
                                 </span>
                             </Button>
+                            </Link>
                             {/* </a> */}
                             <Link href={route("prototype.login")}>
                                 <Button variant="light-outline">
