@@ -54,7 +54,7 @@ export default function Dashboard(){
                       ))}
                  
                         
-                    </Flickity>      
+                        </Flickity>      
                 </div>
             </Authenticated>
     );
