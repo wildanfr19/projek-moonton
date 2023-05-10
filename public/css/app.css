@@ -809,6 +809,10 @@ input.top-search:focus {
   margin-left: auto;
   margin-right: auto;
 }
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
 .my-\[70px\] {
   margin-top: 70px;
   margin-bottom: 70px;
@@ -1205,6 +1209,9 @@ input.top-search:focus {
 .border {
   border-width: 1px;
 }
+.border-2 {
+  border-width: 2px;
+}
 .border-b {
   border-bottom-width: 1px;
 }
@@ -1239,6 +1246,10 @@ input.top-search:focus {
 .border-indigo-400 {
   --tw-border-opacity: 1;
   border-color: rgb(129 140 248 / var(--tw-border-opacity));
+}
+.border-red-600 {
+  --tw-border-opacity: 1;
+  border-color: rgb(220 38 38 / var(--tw-border-opacity));
 }
 .border-transparent {
   border-color: transparent;
