@@ -809,6 +809,10 @@ input.top-search:focus {
   margin-left: auto;
   margin-right: auto;
 }
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
 .my-\[70px\] {
   margin-top: 70px;
   margin-bottom: 70px;
@@ -971,8 +975,14 @@ input.top-search:focus {
 .min-h-screen {
   min-height: 100vh;
 }
+.w-2\/12 {
+  width: 16.666667%;
+}
 .w-20 {
   width: 5rem;
+}
+.w-3\/12 {
+  width: 25%;
 }
 .w-4 {
   width: 1rem;
@@ -985,6 +995,9 @@ input.top-search:focus {
 }
 .w-6 {
   width: 1.5rem;
+}
+.w-6\/12 {
+  width: 50%;
 }
 .w-8 {
   width: 2rem;
@@ -1037,9 +1050,6 @@ input.top-search:focus {
 .max-w-max {
   max-width: -moz-max-content;
   max-width: max-content;
-}
-.max-w-xl {
-  max-width: 36rem;
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -1205,6 +1215,9 @@ input.top-search:focus {
 .border {
   border-width: 1px;
 }
+.border-2 {
+  border-width: 2px;
+}
 .border-b {
   border-bottom-width: 1px;
 }
@@ -1232,13 +1245,13 @@ input.top-search:focus {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
 }
-.border-gray-400 {
-  --tw-border-opacity: 1;
-  border-color: rgb(156 163 175 / var(--tw-border-opacity));
-}
 .border-indigo-400 {
   --tw-border-opacity: 1;
   border-color: rgb(129 140 248 / var(--tw-border-opacity));
+}
+.border-red-600 {
+  --tw-border-opacity: 1;
+  border-color: rgb(220 38 38 / var(--tw-border-opacity));
 }
 .border-transparent {
   border-color: transparent;
@@ -1246,6 +1259,10 @@ input.top-search:focus {
 .bg-\[\#333333\] {
   --tw-bg-opacity: 1;
   background-color: rgb(51 51 51 / var(--tw-bg-opacity));
+}
+.bg-\[\#f1f1f1\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(241 241 241 / var(--tw-bg-opacity));
 }
 .bg-alerange {
   --tw-bg-opacity: 1;
@@ -1493,9 +1510,6 @@ input.top-search:focus {
 .leading-tight {
   line-height: 1.25;
 }
-.tracking-wider {
-  letter-spacing: 0.05em;
-}
 .tracking-widest {
   letter-spacing: 0.1em;
 }
@@ -1611,6 +1625,9 @@ input.top-search:focus {
 }
 .outline-\[\#F1F1F1\] {
   outline-color: #F1F1F1;
+}
+.outline-\[\#f1f1f1\] {
+  outline-color: #f1f1f1;
 }
 .outline-gray-2 {
   outline-color: #E2E0E0;
