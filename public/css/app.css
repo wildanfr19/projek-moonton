@@ -923,6 +923,9 @@ input.top-search:focus {
 .inline-flex {
   display: inline-flex;
 }
+.table {
+  display: table;
+}
 .grid {
   display: grid;
 }
@@ -986,6 +989,9 @@ input.top-search:focus {
 }
 .w-3\/12 {
   width: 25%;
+}
+.w-32 {
+  width: 8rem;
 }
 .w-4 {
   width: 1rem;
@@ -1065,6 +1071,9 @@ input.top-search:focus {
 }
 .shrink-0 {
   flex-shrink: 0;
+}
+.table-fixed {
+  table-layout: fixed;
 }
 .origin-top {
   transform-origin: top;
