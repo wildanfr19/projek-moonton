@@ -61,6 +61,10 @@ class HandleInertiaRequests extends Middleware
                 'user' => $request->user(),
                 'activePlan'=> $this->activePlan(),
             ],
+            'flashMessage' => [
+                'message' => Session::get('message'),
+                'type'    => Session::get('type')
+            ],
             'ziggy' => function () {
                 return (new Ziggy)->toArray();
             },
