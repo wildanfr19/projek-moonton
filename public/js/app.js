@@ -7239,7 +7239,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_SubscriptionCard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Components/SubscriptionCard */ "./resources/js/Components/SubscriptionCard.js");
 /* harmony import */ var _Layouts_Authenticated_Index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Layouts/Authenticated/Index */ "./resources/js/Layouts/Authenticated/Index.js");
 /* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -7247,26 +7249,58 @@ __webpack_require__.r(__webpack_exports__);
 
 function SubscriptionPlan(_ref) {
   var auth = _ref.auth,
-    subscriptionPlans = _ref.subscriptionPlans;
+    subscriptionPlans = _ref.subscriptionPlans,
+    env = _ref.env;
   var selectSubscription = function selectSubscription(id) {
     _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__.Inertia.post(route('user.dashboard.subscriptionPlan.userSubscribe', {
       subscriptionPlan: id
-    }));
+    }), {}, {
+      only: ['userSubscription'],
+      onSuccess: function onSuccess(_ref2) {
+        var props = _ref2.props;
+        onSnapMidtrans(props.userSubscription);
+      }
+    });
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Layouts_Authenticated_Index__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  var onSnapMidtrans = function onSnapMidtrans(userSubscription) {
+    snap.pay(userSubscription.snap_token, {
+      // Optional
+      onSuccess: function onSuccess(result) {
+        _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__.Inertia.visit(route('user.dashboard.index'));
+      },
+      // Optional
+      onPending: function onPending(result) {
+        console.log({
+          result: result
+        });
+      },
+      // Optional
+      onError: function onError(result) {
+        console.log({
+          result: result
+        });
+      }
+    });
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_Layouts_Authenticated_Index__WEBPACK_IMPORTED_MODULE_1__["default"], {
     auth: auth,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.Head, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("script", {
+        src: "https://app.sandbox.midtrans.com/snap/snap.js",
+        "data-client-key": env.MIDTRANS_CLIENTKEY
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "py-20 flex flex-col items-center",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "text-black font-semibold text-[26px] mb-3",
         children: "Pricing for Everyone"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
         className: "text-base text-gray-1 leading-7 max-w-[302px] text-center",
         children: "Invest your little money to get a whole new experiences from movies."
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "flex justify-center gap-10 mt-[70px]",
         children: subscriptionPlans.map(function (subscriptionPlan) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Components_SubscriptionCard__WEBPACK_IMPORTED_MODULE_0__["default"], {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components_SubscriptionCard__WEBPACK_IMPORTED_MODULE_0__["default"], {
             name: subscriptionPlan.name,
             price: subscriptionPlan.price,
             durationInMonth: subscriptionPlan.active_period_in_month,
@@ -7278,7 +7312,7 @@ function SubscriptionPlan(_ref) {
           }, subscriptionPlan.id);
         })
       })]
-    })
+    })]
   });
 }
 
